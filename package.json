@@ -1,0 +1,26 @@
+{
+  "name": "conjugate-pt",
+  "version": "0.0.0",
+  "description": "Conjugates Portuguese verbs.",
+  "main": "conjugatept.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/turbomaze/conjugate-pt.git"
+  },
+  "keywords": [
+    "conjugate",
+    "portuguese"
+  ],
+  "author": "Anthony Liu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/turbomaze/conjugate-pt/issues"
+  },
+  "homepage": "https://github.com/turbomaze/conjugate-pt#readme",
+  "dependencies": {
+    "request": "^2.79.0"
+  }
+}

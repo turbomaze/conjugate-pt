@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/turbomaze/conjugate-pt#readme",
   "dependencies": {
+    "jsdom": "^9.9.1",
     "request": "^2.79.0"
   }
 }

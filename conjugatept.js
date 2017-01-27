@@ -3,11 +3,8 @@
 // @version 0.0.0
 
 // dependencies
-var fs = require('fs');
-var request = require('request');
-
-// config
 var endpoint = 'http://www.conjuga-me.net/en/verbo-';
+var apilayer = require('./apilayer')(endpoint)
 
 // check arguments
 if (process.argv.length < 4) {
@@ -21,7 +18,26 @@ var inFile = process.argv[2];
 var outFile = process.argv[3];
 
 // load the words
-var inputFileContents = fs.readFileSync(inFile, 'UTF-8');
-var words = inputFileContents.split('\n').slice(0, -1);
+var words = require('./' + inFile);
 
-console.log(words);
+// load up the conjugations
+var out = {};
+var numWordsConjugated = 0;
+words.map(function(word) {
+  apilayer.conjugatePt(word, function(err, conjugation) {
+    numWordsConjugated += 1;
+
+    if (err) {
+      return console.log(
+        'Could not conjugate "' + word + '".'
+      );
+    }
+
+    out[word] = conjugation;
+
+    // when all of the words have been conjugated
+    if (numWordsConjugated === words.length) {
+      console.log(out);
+    }
+  });
+});

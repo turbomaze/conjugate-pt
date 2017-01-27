@@ -3,6 +3,7 @@
 // @version 0.0.0
 
 // dependencies
+var fs = require('fs');
 var endpoint = 'http://www.conjuga-me.net/en/verbo-';
 var apilayer = require('./apilayer')(endpoint)
 
@@ -37,7 +38,7 @@ words.map(function(word) {
 
     // when all of the words have been conjugated
     if (numWordsConjugated === words.length) {
-      console.log(out);
+      fs.writeFileSync(outFile, JSON.stringify(out, true, 2));
     }
   });
 });
